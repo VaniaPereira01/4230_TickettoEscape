@@ -1,6 +1,6 @@
 import React from "react";
-import "./JoinGame.css";
-import logo from "../../data/Logo.png";  // Pfad ggf. anpassen
+import "../../App.css";
+import logo from "../../data/Logo.png";
 
 export const JoinGame = ({ gameId, setGameId }) => {
   const handleJoin = () => {
@@ -8,7 +8,7 @@ export const JoinGame = ({ gameId, setGameId }) => {
   };
 
   return (
-    <div className="joingame">
+    <div className="page">
       <div className="card">
         <div className="logo-container">
           <img src={logo} alt="Ticket to Escape" />
@@ -21,7 +21,7 @@ export const JoinGame = ({ gameId, setGameId }) => {
             type="text"
             placeholder="1234"
             value={gameId}
-            onChange={(e) => setGameId(e.target.value)} // Aktualisiert die Spiel-ID
+            onChange={(e) => setGameId(e.target.value)}
           />
           <button onClick={handleJoin}>Spiel beitreten</button>
         </div>
@@ -29,4 +29,3 @@ export const JoinGame = ({ gameId, setGameId }) => {
     </div>
   );
 };
-
