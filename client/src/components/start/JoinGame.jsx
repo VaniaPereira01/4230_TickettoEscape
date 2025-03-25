@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./JoinGame.css";
-import logo from "../../data/Logo.png"; // Adjust the path based on your folder structure
+import logo from "../../data/Logo.png";  // Pfad ggf. anpassen
 
-export const JoinGame = () => {
-  const [gameId, setGameId] = useState("");
-
+export const JoinGame = ({ gameId, setGameId }) => {
   const handleJoin = () => {
-    // Your join logic here
     alert(`Joining game with ID: ${gameId}`);
   };
 
@@ -24,7 +21,7 @@ export const JoinGame = () => {
             type="text"
             placeholder="1234"
             value={gameId}
-            onChange={(e) => setGameId(e.target.value)}
+            onChange={(e) => setGameId(e.target.value)} // Aktualisiert die Spiel-ID
           />
           <button onClick={handleJoin}>Spiel beitreten</button>
         </div>
@@ -32,3 +29,4 @@ export const JoinGame = () => {
     </div>
   );
 };
+
