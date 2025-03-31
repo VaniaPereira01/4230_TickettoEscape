@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { StartScreen } from "./components/start/StartScreen"
 import { JoinGame } from "./components/start/JoinGame"
 import { CreateGame } from "./components/start/CreateGame"
+import { ChooseRole } from "./components/start/ChooseRole";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           />
         }
       />
+      <Route path="/role" element={<ChooseRole />} />
   </Routes>
 );
 

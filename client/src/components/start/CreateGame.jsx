@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../App.css";
 import logo from "../../data/Logo.png";
 
 export const CreateGame = ({ duration, setDuration, policeCount, setPoliceCount }) => {
+  const navigate = useNavigate();
+
   const handleCreateGame = () => {
-    alert(`Spiel erstellt mit Dauer: ${duration} Stunden, Polizisten: ${policeCount}`);
+    // Optional: Gültigkeit checken
+    if (duration >= 1 && duration <= 10 && policeCount >= 1 && policeCount <= 10) {
+      navigate("/role");
+    } else {
+      alert("Bitte gültige Werte eingeben!");
+    }
   };
 
   return (
@@ -19,10 +27,10 @@ export const CreateGame = ({ duration, setDuration, policeCount, setPoliceCount 
           <input
             id="duration"
             type="number"
-            placeholder="z.B. 5"
-            value={duration}
+            placeholder="z.B. 2"
             min={1}
             max={10}
+            value={duration}
             onChange={(e) => setDuration(e.target.value)}
           />
 
@@ -31,9 +39,9 @@ export const CreateGame = ({ duration, setDuration, policeCount, setPoliceCount 
             id="policeCount"
             type="number"
             placeholder="z.B. 2"
-            value={policeCount}
             min={1}
             max={10}
+            value={policeCount}
             onChange={(e) => setPoliceCount(e.target.value)}
           />
 
